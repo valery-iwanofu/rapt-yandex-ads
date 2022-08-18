@@ -26,5 +26,10 @@
 ## Ручная настройка
 TODO
 
+# Решение проблем
+Создайте issue или свяжитесь с помощью социальной сети.
+* [VK](https://vk.com/)
+* [Discord][https://discordapp.com/users/844095423157239818]
+
 # Поддержать автора
 * [Boosty](https://boosty.to/iwanofu)
