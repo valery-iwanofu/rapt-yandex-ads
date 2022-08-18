@@ -21,7 +21,7 @@
 Если вы всё сделали правильно, то после сборки в вашей игре должен появиться рекламный баннер.
 
 ### Видео с установкой
-TODO
+[![Video thumbnail](screenshots/youtube_video.png)](https://youtu.be/Aj6LSruOnT8)
 
 ## Ручная настройка
 TODO
