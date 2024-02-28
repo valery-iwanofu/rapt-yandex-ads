@@ -4,7 +4,7 @@ _Runnable = jnius.autoclass('java.lang.Runnable')
 _PythonSDLActivity = jnius.autoclass('org.renpy.android.PythonSDLActivity')
 
 _BannerAdView = jnius.autoclass('com.yandex.mobile.ads.banner.BannerAdView')
-_AdSize = jnius.autoclass('com.yandex.mobile.ads.banner.AdSize')
+_BannerAdSize = jnius.autoclass('com.yandex.mobile.ads.banner.BannerAdSize')
 _AdRequestBuilder = jnius.autoclass('com.yandex.mobile.ads.common.AdRequest$Builder')
 
 _FrameLayoutParams = jnius.autoclass('android.widget.FrameLayout$LayoutParams')
@@ -196,13 +196,13 @@ class BannerWrapper:
         self._update_position()
 
     def set_sticky_size(self, width=-1):
-        self._set_size(_AdSize.stickySize(width))
+        self._set_size(_BannerAdSize.stickySize(_mActivity, width))
 
     def set_flexible_size(self, width, height):
-        self._set_size(_AdSize.flexibleSize(width, height))
+        self._set_size(_BannerAdSize.flexibleSize(width, height))
 
     def set_size(self, width, height):
-        self._set_size(_AdSize(width, height))
+        self._set_size(_BannerAdSize(width, height))
 
     def _set_size(self, size):
         if self._size is None:

@@ -2,15 +2,34 @@
 Данный репозиторий содержит модифицированные файлы из папки rapt, которые позволят вам добавить рекламный баннер в игру сделанную на Ren'Py.
 ![](screenshots/preview.jpg)
 
-# How to
-## Установка
+# Установка
+**⚠️Минимальная поддерживаемая версия Ren'Py - 8.2.0**
+## Подготовка rapt
 *Папка **rapt** находится в директории, где лежит исполняемый файл Ren'Py(**renpy.exe**).*
-1. Продуплируйте папки **rapt/templates** и **rapt/prototype**(с целью бэкапа)
-2. Скачайте данный репозиторий
-![](screenshots/download_archive.png)
-3. Переместите все файлы из папки **скачанный_архив/rapt** в папку **rapt**(согласитесь на замену)
-4. Переместите файл **yandex_ads.py** в папку **game** вашего Ren'Py проекта
-5. Импортируйте модуль yandex_ads в ваш Ren'Py проект, используя следующий код:
+Найдите файл `rapt/project/app/build.gradle`, откройте его в текстовом редакторе и проделайте в нём следующие изменения:
+
+```diff
+android {
++   multiDexEnabled true
+    compileSdkVersion 33
+
+    namespace "{{ config.package }}"
+
+    defaultConfig {
+        applicationId "{{ config.package }}"
+```
+
+```diff
+dependencies {
++   implementation 'com.yandex.android:mobileads:6.4.0'
+    implementation project(':renpyandroid')
+```
+
+**⚠️Внимание: после обновления движка необходимо повторить эту процедуру**
+
+## Использование
+1. Переместите файл [**yandex_ads.py**](yandex_ads.py) в папку **game** вашего Ren'Py проекта
+2. Импортируйте модуль yandex_ads в ваш Ren'Py проект, используя следующий код:
 ```python
 # данный код можно прописать в любом файле вашего проекта(например, в script.rpy)
 
@@ -18,7 +37,6 @@ init python:
   if renpy.android:
     import yandex_ads
 ```
-6. Удалите папку **rapt/project** или файл **rapt/project/build.txt** для того, чтобы Ren'Py заново сгенерировал файлы для сборки
 
 ## Создание баннера
 ```python
@@ -70,11 +88,6 @@ banner.set_size(width, height)
 ```
 
 *Ширина и высота указывается в dp(density-independent pixels).*
-
-## Видео с установкой(актуально не полностью)
-* **PythonSDLActivity.java** редактировать не нужно!*
-
-[![Video thumbnail](screenshots/youtube_video.png)](https://youtu.be/Aj6LSruOnT8)
 
 ## Ручная настройка
 TODO
