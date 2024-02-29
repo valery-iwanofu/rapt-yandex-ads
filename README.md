@@ -10,12 +10,12 @@
 
 ```diff
 android {
-+   multiDexEnabled true
     compileSdkVersion 33
 
     namespace "{{ config.package }}"
 
     defaultConfig {
++       multiDexEnabled true
         applicationId "{{ config.package }}"
 ```
 
